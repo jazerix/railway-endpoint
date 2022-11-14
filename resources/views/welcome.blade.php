@@ -26,7 +26,7 @@
 <script type="module">
 
     (async () => {
-        const tokenID = {{ config('maps.map_token') }};
+        const tokenID = "{{ config('maps.map_token') }}";
 
         if (!window.mapkit || window.mapkit.loadedLibraries.length === 0) {
             // mapkit.core.js or the libraries are not loaded yet.

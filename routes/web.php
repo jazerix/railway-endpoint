@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalysisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('upload', [AnalysisController::class, 'showUpload']);
+Route::post('upload', [AnalysisController::class, 'upload'])->name('upload');
+Route::get('measurements', [AnalysisController::class, 'measurements'])->name('measurements');
+Route::post('measurements/{recordingId}/positions', [AnalysisController::class, 'uploadPositions']);
+Route::get('measurements/{recordingId}/positions', [AnalysisController::class, 'positions']);
+Route::get('measurements/{recordingId}/closest', [AnalysisController::class, 'closest']);
+Route::get('measurements/{recordingId}/data', [AnalysisController::class, 'data']);
